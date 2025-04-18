@@ -1,3 +1,7 @@
-ggbr4 x goau4
+PETR4 x PRIO3
 
-brap4 x vale5
+GGBR4 x GOAU4
+
+BRAP4 x VALE3
+
+ELET6 x ELET3
