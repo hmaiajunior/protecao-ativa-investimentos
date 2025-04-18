@@ -1,0 +1,134 @@
+Setor Bancário
+
+ABCB4
+BBAS3
+BBDC3
+BBDC4
+BPAC11
+BPAN4
+BRSR6
+ITSA4
+ITUB3
+ITUB4
+SANB11
+
+
+Setor Elétrico
+
+ALUP11
+CMIG4
+EGIE3
+ELET3
+ELET6
+ENGI11
+EQTL3
+NEOE3
+SAPR11
+SAPR4
+SBSP3
+TAEE11
+
+Setor de Mineração
+
+BRAP4
+CMIN3
+VALE3
+
+Setor de Consumo Não Cíclico
+
+ABEV3
+ASAI3
+BRFS3
+MDIA3
+PSSA3
+RADL3
+
+Setor de Consumo Cíclico
+
+ALPA4
+AZUL4
+GRND3
+GUAR3
+JHSF3
+LREN3
+MULT3
+MRVE3
+VIVA3
+RENT3
+
+Setor de Materiais Básicos
+
+AURE3
+BRKM5
+CSNA3
+FLRY3
+GGBR4
+GOAU4
+KLBN11
+SUZB3
+USIM5
+
+Setor de Tecnologia
+
+COGN3
+LWSA3
+TOTS3
+WEGE3
+VLID3
+
+Setor de Transporte e Logística
+
+ECOR3
+EMBR3
+RAIL3
+
+Setor de Petróleo, Gás e Energia
+
+PETR3
+PETR4
+PRIO3
+RAIZ4
+VBBR3
+
+Setor de Saúde
+
+HAPV3
+RDOR3
+
+Setor de Construção Civil
+
+CURY3
+CYRE3
+DIRR3
+EVEN3
+EZTC3
+MRVE3
+TEND3
+
+Setor de Alimentos e Bebidas
+
+JBSS3
+BRFS3
+BEEF3
+
+
+
+
+PETR4 - R$10,00 > R$10 * 100 = R$1.000 * 120% = R$1200
+PRIO3 - R$9,00  > R$9 * 100 =                   R$900
+
+R$1.000 em garantia na B3.
+
+R$1.000 que recebi da venda das 100 PETR4
+
+Dos R$1.000 que recebi da venda utilizei R$900 para comprar 100 PRIO3. Fiquei apenas com R$100,00 na conta
+
+A ação PRIO3 que acabei de comprar tb é aceita como garantia, porém com deságio de 50%. Então agora eu possuo mais R$450 em garantia.
+
+Somado os R$1.000 que eu já tinha, agora fiquei com R$1450 em garantia.
+
+
+Como eu preciso ter R$1.200 em garantia para cobrir a posição vendida e eu possuo um total de R$1450 em garantia, me sobram R$250,00 em garantia mais os R$100,00 que sobrou na conta.
+
+
+
