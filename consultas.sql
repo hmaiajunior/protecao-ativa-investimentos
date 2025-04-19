@@ -22,3 +22,10 @@ WHERE
     AND bpac11.ticker = 'BPAC11';
 
 
+
+ALTER TABLE dados_historicos_acoes
+ADD COLUMN variacao_diaria FLOAT;
+
+
+select * from dados_historicos_acoes where ticker = 'PETR4'
+

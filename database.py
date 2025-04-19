@@ -12,6 +12,7 @@ class DadosHistoricosAcoes(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     fechamento = Column(Float, nullable=False)             # Valor de fechamento
     fechamento_ajustado = Column(Float, nullable=False)    # Valor de fechamento ajustado
+    variacao_diaria = Column(Float, nullable=True)         # Variação diária (regularMarketChange)
     ticker = Column(String(50), nullable=False)            # Código da ação (ex.: PETR4, VALE3)
     moeda = Column(String(10), nullable=False, default="BRL") # Moeda, padrão BRL
     data = Column(DateTime, nullable=False)                # Data da cotação
