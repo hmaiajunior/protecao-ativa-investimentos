@@ -1,6 +1,14 @@
+PROMISSORES: (Validar no período de 1 ano)
+
 PETR4 x PRIO3
 
 ITUB4 x BPAC11
+
+ELET6 X ENGI11
+
+
+
+
 
 GGBR4 x GOAU4
 

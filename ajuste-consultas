@@ -1,0 +1,22 @@
+SELECT 
+    elet6.data AS data,
+    elet6.fechamento AS fechamento_elet6,
+    engi11.fechamento AS fechamento_engi11,
+    elet6.variacao_diaria AS variacao_diaria_elet6,
+    engi11.variacao_diaria AS variacao_diaria_engi11,
+    ROUND(ABS(CAST(elet6.fechamento AS NUMERIC) - CAST(engi11.fechamento AS NUMERIC)), 2) AS diferenca_fechamento,
+    ROUND(ABS(CAST(elet6.fechamento_ajustado AS NUMERIC) - CAST(engi11.fechamento_ajustado AS NUMERIC)), 2) AS diferenca_fechamento_ajustado,
+    CASE
+        WHEN elet6.fechamento > engi11.fechamento THEN 'ELET6'
+        WHEN engi11.fechamento > elet6.fechamento THEN 'engi11'
+        ELSE 'IGUAL' -- Caso os valores sejam iguais
+    END AS acao_maior_valor
+FROM 
+    dados_historicos_acoes AS ELET6
+JOIN 
+    dados_historicos_acoes AS ENGI11
+ON 
+    elet6.data = engi11.data
+WHERE 
+    elet6.ticker = 'ELET6'
+    AND engi11.ticker = 'ENGI11';
