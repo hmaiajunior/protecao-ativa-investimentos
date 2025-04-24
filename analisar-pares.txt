@@ -6,14 +6,17 @@ ITUB4 x BPAC11
 
 ELET6 X ENGI11
 
+BRAP4 x VALE3 (proporção de 3 BRAP4 x para 1 VALE3)
 
-
-
-
-GGBR4 x GOAU4
-
-BRAP4 x VALE3
+GGBR4 x GOAU4 (proporção de 1 GOAU4 para 1 GGBR4)
 
 ELET6 x ELET3
+
+
+
+
+
+
+
 
 GGBR4 X KLBN11

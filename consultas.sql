@@ -153,3 +153,8 @@ GROUP BY
 ORDER BY 
     ocorrencias_variacao_acima_1 DESC;
 
+
+==> Verificar data/horário da última atualização em uma tabela
+
+SELECT MAX(data) AS ultima_data_disponivel
+FROM dados_historicos_acoes;
