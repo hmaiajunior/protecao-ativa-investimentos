@@ -83,22 +83,31 @@ if aba_selecionada == "Visão Geral":
 # Tela: Margem de Garantia
 elif aba_selecionada == "Margem de Garantia":
     st.markdown("<h1 class='main-title'>Calculadora de Margem de Garantia</h1>", unsafe_allow_html=True)
-    st.markdown("<p class='subheader'>Insira os tickers e veja o cálculo automático.</p>", unsafe_allow_html=True)
+    st.markdown("<p class='subheader'>Selecione os tickers e veja o cálculo automático.</p>", unsafe_allow_html=True)
+
+    # Consultar os tickers disponíveis no banco de dados
+    query_tickers = """
+    SELECT DISTINCT ticker
+    FROM dados_historicos_acoes
+    ORDER BY ticker;
+    """
+    tickers_disponiveis = pd.read_sql(query_tickers, engine)["ticker"].tolist()
 
     col1, col2 = st.columns(2)
 
-    # Dados da ação comprada
+    # Seleção de ação comprada
     with col1:
         st.text("Ação Comprada")
-        nome_acao_comprada = st.text_input("Ticker da ação comprada:", value="PETR4")
+        nome_acao_comprada = st.selectbox("Escolha a ação comprada:", tickers_disponiveis)
         quantidade_comprada = st.number_input("Quantidade comprada:", min_value=1, value=100)
 
-    # Dados da ação vendida
+    # Seleção de ação vendida
     with col2:
         st.text("Ação Vendida")
-        nome_acao_vendida = st.text_input("Ticker da ação vendida:", value="PRIO3")
+        nome_acao_vendida = st.selectbox("Escolha a ação vendida:", tickers_disponiveis)
         quantidade_vendida = st.number_input("Quantidade vendida:", min_value=1, value=100)
 
+    # Função para consultar o preço de fechamento mais recente
     def consultar_preco_fechamento(ticker):
         query = f"""
         SELECT fechamento
@@ -114,6 +123,7 @@ elif aba_selecionada == "Margem de Garantia":
             st.error(f"Ticker {ticker} não encontrado ou sem dados disponíveis.")
             return None
 
+    # Obter os valores de fechamento mais recentes
     preco_comprada = consultar_preco_fechamento(nome_acao_comprada)
     preco_vendida = consultar_preco_fechamento(nome_acao_vendida)
 
