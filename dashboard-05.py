@@ -29,7 +29,7 @@ Session = sessionmaker(bind=engine)
 st.sidebar.title("Dashboard de Ações")
 aba_selecionada = st.sidebar.radio(
     "Navegação:",
-    ["Visão Geral", "Margem de Garantia", "Variação Diária", "Diferença de Fechamento", "Análise de Variações"]
+    ["Visão Geral", "Margem de Garantia", "Variação Diária", "Diferença de Fechamento", "Análise de Variações", "Ações por Setor"]
 )
 
 # Estilo do cabeçalho principal
@@ -144,6 +144,23 @@ elif aba_selecionada == "Margem de Garantia":
         st.write(f"**Margem total necessária:** R${margem_total:.2f}")
         st.warning("Os preços utilizados para o cálculo são apenas estimativas. Para obter valores exatos, entre em contato com sua corretora.")
 
+# Tela: Variação Diária
+elif aba_selecionada == "Variação Diária":
+    st.markdown("<h1 class='main-title'>Variação Diária das Ações</h1>", unsafe_allow_html=True)
+    st.markdown("<p class='subheader'>Visualize os dados de variação diária por ticker.</p>", unsafe_allow_html=True)
+
+    query_variacao = """
+    SELECT ticker, data, variacao_diaria
+    FROM dados_historicos_acoes
+    WHERE variacao_diaria > 1.00
+    ORDER BY ticker, data DESC;
+    """
+    variacao_dados = pd.read_sql(query_variacao, engine)
+
+    st.dataframe(variacao_dados)
+    st.line_chart(data=variacao_dados, x="data", y="variacao_diaria")
+
+
 # Tela: Diferença de Fechamento
 elif aba_selecionada == "Diferença de Fechamento":
     st.markdown("<h1 class='main-title'>Comparação de Fechamento entre Ações</h1>", unsafe_allow_html=True)
@@ -235,3 +252,30 @@ elif aba_selecionada == "Análise de Variações":
         "Ticker", "Variação Último Dia", "Média 30 Dias", "Diferença (%)", "Tendência"
     ])
     st.dataframe(df_comparacoes)
+
+# Tela: Ações por Setor
+elif aba_selecionada == "Ações por Setor":
+    st.markdown("<h1 class='main-title'>Ações por Setor</h1>", unsafe_allow_html=True)
+    st.markdown("<p class='subheader'>Visualize todas as ações segregadas por setor.</p>", unsafe_allow_html=True)
+
+    try:
+        # Carregar o arquivo de texto com os setores
+        file_path = "ativos-garantia-dividido-setor.txt"
+        with open(file_path, "r", encoding="utf-8") as file:
+            setores = file.readlines()
+
+        # Exibir os dados formatados
+        setores_dict = {}
+        for line in setores:
+            if ":" in line:
+                setor, acoes = line.strip().split(":")
+                setores_dict[setor.strip()] = acoes.strip().split(",")
+
+        for setor, acoes in setores_dict.items():
+            st.subheader(f"Setor: {setor}")
+            st.write(", ".join(acoes))
+
+    except FileNotFoundError:
+        st.error("O arquivo 'ativos-garantia-dividido-setor.txt' não foi encontrado no diretório atual.")
+    except Exception as e:
+        st.error(f"Erro ao processar o arquivo: {e}")
