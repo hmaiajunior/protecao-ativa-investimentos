@@ -12,7 +12,7 @@ if not token:
 return 
 
 
-rl = "https://brapi.dev/api/quote/"
+url = "https://brapi.dev/api/quote/"
 resosta = requests.get(url)
 dados = resposta.json()
 print (dados)
